@@ -3,7 +3,7 @@ import TelaCadastroProduto from "./componentes/Telas/TelaCadastroProduto";
 import TelaCadastroCategoria from "./componentes/Telas/TelaCadastroCategoria";
 import TelaCadastroCliente from "./componentes/Telas/TelaCadastroCliente";
 import TelaCadastroFornecedores from "./componentes/Telas/TelaCadastroFornecedores";
-import TelaCadastroUsuarios from "./componentes/Telas/TabelaCadastroUsuario";
+import TelaCadastroUsuarios from "./componentes/Telas/TelaCadastroUsuario";
 import TelaMenu from "./componentes/Telas/TelaMenu";
 import Tela404 from "./componentes/Telas/Tela404";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
