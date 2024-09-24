@@ -6,70 +6,18 @@ import Row from 'react-bootstrap/Row';
 import { useState, useEffect } from 'react';
 
 export default function FormCadProdutos(props) {
- /*   const [produto, setProduto] = useState({      MINHA VERSÃO DO TRABALHO
-        codigo:0,
-        descricao:"",
-        precoCusto:0,
-        precoVenda:0,
-        qtdEstoque:0,
-        urlImagem:"",
-        dataValidade:""
-    });*/
     const [produto, setProduto] = useState(props.produtoSelecionado);
-
-    /*useEffect(() => {
-        if (props.modoEdicao && props.produtoSelecionado) {
-            setProduto({
-                codigo: props.produtoSelecionado.codigo,
-                descricao: props.produtoSelecionado.descricao,
-                precoCusto: props.produtoSelecionado.precoCusto,
-                precoVenda: props.produtoSelecionado.precoVenda,
-                qtdEstoque: props.produtoSelecionado.qtdEstoque,
-                urlImagem: props.produtoSelecionado.urlImagem,
-                dataValidade: props.produtoSelecionado.dataValidade
-            });
-        }
-        else {
-            setProduto({
-                codigo: 0,
-                descricao: "",
-                precoCusto: 0,
-                precoVenda: 0,
-                qtdEstoque: 0,
-                urlImagem: "",
-                dataValidade: ""
-            });
-        }
-    }, [props.modoEdicao, props.produtoSelecionado]);*/
 
     const [formValidado, setFormValidado] = useState(false);
     function manipularSubmissao(evento){
         const form = evento.currentTarget;
         if(form.checkValidity()){
-        /*    // cadastrar o produto
-            if (props.modoEdicao){
-                // Atualiza o produto existente
-                const listaAtualizada = props.listaDeProdutos.map(item => 
-                    item.codigo === produto.codigo ? produto : item
-                );
-                props.setListaDeProdutos(listaAtualizada);
-            }
-            else{
-                // Adiciona um novo produto
-                props.setListaDeProdutos([...props.listaDeProdutos, produto]);
-            }
-            // exibir tabela com o produto incluido
-            props.setExibirTabela(true);
-            */
-            // cadastrar o produto
             if (!props.modoEdicao){
                 props.setListaDeProdutos([...props.listaDeProdutos, produto]);
                 props.setExibirTabela(true);
                 
             }
             else{
-               // editar produto
-               // altera a ordem dos registros
                 props.setListaDeProdutos([...props.listaDeProdutos.filter(
                     (item) => {
                             return item.codigo !== produto.codigo;
@@ -78,7 +26,6 @@ export default function FormCadProdutos(props) {
 
                 // não altera a ordem dos registros
                 props.setListaDeProdutos(props.listaDeProdutos.map((item) => {
-                   // return item.codigo !== produto.codigo ? item:produto;
                     if(item.codigo !== produto.codigo)
                         return item
                     else

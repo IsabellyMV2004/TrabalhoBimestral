@@ -37,10 +37,6 @@ export default function TelaCadastroProduto(props) {
                     modoEdicao={modoEdicao}
                     produtoSelecionado={produtoSelecionado}
                 />
-                    /*
-                    Se                  então           se não   então
-                    exibirTAbela ?  <TabelaProdutos/>    :       <FormCadProdutos />
-                    */
                 }
             </Pagina>
         </div>
