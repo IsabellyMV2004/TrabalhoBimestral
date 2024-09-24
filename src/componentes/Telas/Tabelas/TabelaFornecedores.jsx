@@ -1,4 +1,5 @@
 import { Button, Container, Table } from "react-bootstrap";
+import { fornecedores } from "../../../dados/mockFornecedores";
 
 export default function TabelaFornecedores(props) {
 

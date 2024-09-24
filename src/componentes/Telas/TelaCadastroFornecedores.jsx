@@ -3,19 +3,13 @@ import FormCadFornecedores from "./Formularios/FormCadFornecedores";
 import Pagina from "../layouts/Pagina";
 import { useState } from "react";
 import TabelaFornecedores from "./Tabelas/TabelaFornecedores";
-import { fornecedores } from "../../dados/mockFornecedor";
+import { fornecedores } from "../../dados/mockFornecedores";
 
 export default function TelaCadastroFornecedor(props){
     const [exibirTabela, setExibirTabela] = useState(true);
     const [listaDeFornecedores, setListaDeFornecedores] = useState(fornecedores); 
     const [modoEdicao, setModoEdicao] = useState(false); 
-    const [fornecedorSelecionado, setFornecedorSelecionado] = useState({
-        codigo: 0,
-        nome: "",
-        endereco: "",
-        contato: "",
-        cpf: ""
-    }); 
+    const [fornecedorSelecionado, setFornecedorSelecionado] = useState(fornecedores); 
     
     return(
         <div>
