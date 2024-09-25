@@ -1,21 +1,21 @@
 import { Button, Container, Table} from "react-bootstrap";
-import { categorias } from "../../../dados/mockCategorias";
+import { entregadores } from "../../../dados/mockEntregadores";
 
-export default function TabelaCategorias(props) {
+export default function TabelaEntregadores(props) {
 
-    function alterarCategoria(categoria){
+    function alterarEntregador(entregador){
         props.setModoEdicao(true);
-        props.setCategoriaSelecionado(categoria);
+        props.setEntregadorSelecionado(entregador);
         props.setExibirTabela(false);
     }
 
 
-    function excluirCategoria(categoria){
-        if(window.confirm("Deseja realmente excluir o prouto" + categoria.descricao)){
+    function excluirEntregador(entregador){
+        if(window.confirm("Deseja realmente excluir o prouto" + entregador.descricao)){
             // abordagem utilizando a sintaxe permitida da linguagem
-            props.setListaDeCategorias(props.listaDeCategorias.filter(
+            props.setListaDeEntregadores(props.listaDeEntregadores.filter(
                 (item)=>{
-                            return item.codigo != categoria.codigo
+                            return item.codigo != entregador.codigo
                         }));
         }
     }
@@ -32,20 +32,37 @@ export default function TabelaCategorias(props) {
                 <Table striped bordered hover>
                     <thead>
                         <th>Código</th>
-                        <th>Descrição</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Foto</th>
+                        <th>Endereço</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Veiculo</th>
+                        <th>CNH</th>
                         <th>Ações</th>
                     </thead>
                     <tbody>
                        {
                         // a ? é para testar se é um valor valido. Se existir executa, se não não executa
-                        props.listaDeCategorias?.map((categoria) => {
+                        props.listaDeEntregadores?.map((entregador) => {
                             return (
                                 <tr>
-                                    <td>{categoria.codigo}</td>
-                                    <td>{categoria.descricao}</td>
+                                    <td>{entregador.codigo}</td>
+                                    <td>{entregador.nome}</td>
+                                    <td>{entregador.CPF}</td>
+                                    <td><img style={{
+                                        "width":"40px",
+                                        "height":"40px"
+                                        }} src={entregador.foto} alt="foto do entregador"/></td>
+                                    <td>{entregador.endereco}</td>
+                                    <td>{entregador.email}</td>
+                                    <td>{entregador.telefone}</td>
+                                    <td>{entregador.veiculo}</td>
+                                    <td>{entregador.CNH}</td>
                                     <td>
                                         <Button onClick={()=> {
-                                            alterarCategoria(categoria);
+                                            alterarEntregador(entregador);
                                         }}
                                         variant="warning">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -53,7 +70,7 @@ export default function TabelaCategorias(props) {
                                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                                             </svg>
                                         </Button> <Button onClick={()=> {
-                                            excluirCategoria(categoria);
+                                            excluirEntregador(entregador);
                                         }} variant="danger">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
@@ -67,6 +84,7 @@ export default function TabelaCategorias(props) {
                        }
                     </tbody>
                 </Table>
+                <p>Quantidade de entregadores cadastrados: {props.listaDeEntregadores.length}</p>
             </Container>
         </>
     );
