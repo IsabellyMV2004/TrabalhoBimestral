@@ -11,7 +11,7 @@ export default function TabelaEntregadores(props) {
 
 
     function excluirEntregador(entregador){
-        if(window.confirm("Deseja realmente excluir o prouto" + entregador.descricao)){
+        if(window.confirm("Deseja realmente excluir o entregador" + entregador.nome)){
             // abordagem utilizando a sintaxe permitida da linguagem
             props.setListaDeEntregadores(props.listaDeEntregadores.filter(
                 (item)=>{

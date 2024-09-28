@@ -11,7 +11,7 @@ export default function TabelaClientes(props) {
 
 
     function excluirCliente(cliente){
-        if(window.confirm("Deseja realmente excluir o cliente" + cliente.descricao)){
+        if(window.confirm("Deseja realmente excluir o cliente" + cliente.nome)){
             // abordagem utilizando a sintaxe permitida da linguagem
             props.setListaDeClientes(props.listaDeClientes.filter(
                 (item)=>{
