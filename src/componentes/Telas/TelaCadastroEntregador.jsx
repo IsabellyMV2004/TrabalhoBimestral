@@ -16,7 +16,7 @@ export default function TelaCadastroEntregador(props) {
             <Pagina>
                 |<Alert className="mt-02 mb-02 success text-center" variant="success">
                     <h2>
-                        Cadastro de Produto
+                        Cadastro de Entregador
                     </h2>
                 </Alert>
                 {
