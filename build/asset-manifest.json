@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/TrabalhoBimestral/static/css/main.d221dc40.css",
-    "main.js": "/TrabalhoBimestral/static/js/main.c8f658d8.js",
+    "main.js": "/TrabalhoBimestral/static/js/main.ed2b6393.js",
     "static/media/pagina404.png": "/TrabalhoBimestral/static/media/pagina404.4bf0805d8d55a31c5142.png",
     "index.html": "/TrabalhoBimestral/index.html",
     "main.d221dc40.css.map": "/TrabalhoBimestral/static/css/main.d221dc40.css.map",
-    "main.c8f658d8.js.map": "/TrabalhoBimestral/static/js/main.c8f658d8.js.map"
+    "main.ed2b6393.js.map": "/TrabalhoBimestral/static/js/main.ed2b6393.js.map"
   },
   "entrypoints": [
     "static/css/main.d221dc40.css",
-    "static/js/main.c8f658d8.js"
+    "static/js/main.ed2b6393.js"
   ]
 }

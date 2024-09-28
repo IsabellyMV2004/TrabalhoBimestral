@@ -11,7 +11,7 @@ export default function TabelaProdutos(props) {
 
 
     function excluirProduto(produto){
-        if(window.confirm("Deseja realmente excluir o prouto" + produto.descricao)){
+        if(window.confirm("Deseja realmente excluir o prouto " + produto.descricao)){
             // abordagem utilizando a sintaxe permitida da linguagem
             props.setListaDeProdutos(props.listaDeProdutos.filter(
                 (item)=>{

@@ -11,7 +11,7 @@ export default function TabelaFornecedores(props) {
 
 
     function excluirFornecedor(fornecedor){
-        if(window.confirm("Deseja realmente excluir o fornecedor" + fornecedor.nome)){
+        if(window.confirm("Deseja realmente excluir o fornecedor " + fornecedor.nome)){
             // abordagem utilizando a sintaxe permitida da linguagem
             props.setListaDeFornecedores(props.listaDeFornecedores.filter(
                 (item)=>{

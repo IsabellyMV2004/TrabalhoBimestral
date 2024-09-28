@@ -11,9 +11,9 @@ export default function TabelaUsuarios(props) {
 
 
     function excluirUsuario(usuario){
-        if(window.confirm("Deseja realmente excluir o usuario" + usuario.nome)){
+        if(window.confirm("Deseja realmente excluir o usuario " + usuario.nome)){
             // abordagem utilizando a sintaxe permitida da linguagem
-            props.setListaDeUsuarios(props.listaDeusuarios.filter(
+            props.setListaDeUsuarios(props.listaDeUsuarios.filter(
                 (item)=>{
                             return item.codigo != usuario.codigo
                         }));
