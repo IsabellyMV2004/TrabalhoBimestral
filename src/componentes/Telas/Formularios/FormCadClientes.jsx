@@ -39,7 +39,7 @@ export default function FormCadClientes(props) {
                     nome:"",
                     endereco:"",
                     email:"",
-                    telefone:"",
+                    telefone:""
                 })
                 props.setExibirTabela(true);
             }            
