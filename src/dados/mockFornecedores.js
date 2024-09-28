@@ -1,16 +1,16 @@
 export const fornecedores = [
     {
         "codigo": 1,
-        "nome": "Natalia",
-        "endereco": "Casa",
-        "contato": "Não me liguem",
-        "cpf": "40020922"
+        "nome": "Maria do Carmo",
+        "endereco": "Mansão",
+        "contato": "40020922",
+        "cpf": "111.111.111-11"
     },
     {
         "codigo": 2,
-        "nome": "aaaaaaaa",
+        "nome": "Filha da Maria do Carmo",
         "endereco": "um lugar",
-        "contato": "não decorei",
+        "contato": "40020922",
         "cpf": "000.000.000-00"
     }
 ]

@@ -36,12 +36,11 @@ export default function FormCadUsuarios(props) {
                 props.setModoEdicao(false);
                 props.setUsuarioSelecionado({
                     codigo:0,
-                    descricao:"",
-                    precoCusto:0,
-                    precoVenda:0,
-                    qtdEstoque:0,
-                    urlImagem:"",
-                    dataValidade:""
+                    email:"",
+                    senha:"",
+                    nome:"",
+                    telefone:"",
+                    endereco:""
                 })
                 props.setExibirTabela(true);
             }            
@@ -89,6 +88,20 @@ export default function FormCadUsuarios(props) {
                         onChange={manipularMudanca}
                     />
                     <Form.Control.Feedback type="invalid">Por favor, informe o email do usuario!</Form.Control.Feedback>
+                </Form.Group>
+            </Row>
+            <Row className="mb-4">
+                <Form.Group as={Col} md="12">
+                    <Form.Label>Senha</Form.Label>
+                    <Form.Control
+                        required
+                        type="text"
+                        id="senha"
+                        name="senha"
+                        value={usuario.senha}
+                        onChange={manipularMudanca}
+                    />
+                    <Form.Control.Feedback type="invalid">Por favor, informe a senha do usuario!</Form.Control.Feedback>
                 </Form.Group>
             </Row>
             <Row className="mb-4">

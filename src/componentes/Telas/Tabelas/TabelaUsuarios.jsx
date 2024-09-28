@@ -33,6 +33,7 @@ export default function TabelaUsuarios(props) {
                     <thead>
                         <th>Código</th>
                         <th>Email</th>
+                        <th>Senha</th>
                         <th>Nome</th>
                         <th>Telefone</th>
                         <th>Endereco</th>
@@ -46,6 +47,7 @@ export default function TabelaUsuarios(props) {
                                 <tr>
                                     <td>{usuario.codigo}</td>
                                     <td>{usuario.email}</td>
+                                    <td>{usuario.senha}</td>
                                     <td>{usuario.nome}</td>
                                     <td>{usuario.telefone}</td>
                                     <td>{usuario.endereco}</td>
