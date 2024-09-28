@@ -5,50 +5,60 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import { useState, useEffect } from 'react';
 
-export default function FormCadFornecedores(props){
+export default function FormCadFornecedores(props) {
     const [fornecedor, setFornecedor] = useState(props.fornecedorSelecionado);
+
     const [formValidado, setFormValidado] = useState(false);
-
-    function manipularSubmissao(evento) {
+    function manipularSubmissao(evento){
         const form = evento.currentTarget;
-        if (form.checkValidity()) {
-            if (!props.modoEdicao) {
-
-                //cadastrar fornecedor 
+        if(form.checkValidity()){
+            if (!props.modoEdicao){
                 props.setListaDeFornecedores([...props.listaDeFornecedores, fornecedor]);
-                //exibir tabala
                 props.setExibirTabela(true);
+                
+            }
+            else{
+                props.setListaDeFornecedores([...props.listaDeFornecedores.filter(
+                    (item) => {
+                            return item.codigo !== fornecedor.codigo;
+                    }
+                ),fornecedor]);
 
-            } else {
+                // não altera a ordem dos registros
                 props.setListaDeFornecedores(props.listaDeFornecedores.map((item) => {
-                    if (item.codigo !== fornecedor.codigo)
+                    if(item.codigo !== fornecedor.codigo)
                         return item
                     else
                         return fornecedor
-            }));
-            props.setModoEdicao(false);
-            props.setFornecedorSelecionado({
-                codigo: 0,
-                nome: "",
-                endereco: "",
-                contato: "",
-                cpf: ""
-                });
+                }));
+
+                //voltar para o modo 
+                props.setModoEdicao(false);
+                props.setFornecedorSelecionado({
+                    codigo:0,
+                    nome:"",
+                    endereco:"",
+                    contato:"",
+                    cpf:""
+                })
                 props.setExibirTabela(true);
-            }
-        } else {
+            }            
+        }
+        else{
             setFormValidado(true);
         }
         evento.preventDefault();
         evento.stopPropagation();
     }
 
-    function manipularMudanca(evento) {
+    function manipularMudanca(evento){
         const elemento = evento.target.name;
-        const valor    = evento.target.value;
-        setFornecedor({ ...fornecedor, [elemento]:valor });
+        const valor = evento.target.value;
+                // ... operador de espalhamento
+        setFornecedor({...fornecedor, [elemento]:valor});
     }
-    return(
+
+    return (
         <Form noValidate validated={formValidado} onSubmit={manipularSubmissao}>
             <Row className="mb-4">
                 <Form.Group as={Col} md="4">
@@ -59,14 +69,14 @@ export default function FormCadFornecedores(props){
                         id="codigo"
                         name="codigo"
                         value={fornecedor.codigo}
+                        disabled={props.modoEdicao}
                         onChange={manipularMudanca}
-                        disabled={props.modoEdicao}  
                     />
                     <Form.Control.Feedback type='invalid'>Por favor, informe o código do fornecedor!</Form.Control.Feedback>
                 </Form.Group>
             </Row>
             <Row className="mb-4">
-                <Form.Group as={Col} md="4">
+                <Form.Group as={Col} md="12">
                     <Form.Label>Nome</Form.Label>
                     <Form.Control
                         required
@@ -74,27 +84,27 @@ export default function FormCadFornecedores(props){
                         id="nome"
                         name="nome"
                         value={fornecedor.nome}
-                        onChange={manipularMudanca}  
+                        onChange={manipularMudanca}
                     />
-                    <Form.Control.Feedback type='invalid'>Por favor, informe o Nome do fornecedor!</Form.Control.Feedback>
+                    <Form.Control.Feedback type="invalid">Por favor, informe o nome do fornecedor!</Form.Control.Feedback>
                 </Form.Group>
             </Row>
             <Row className="mb-4">
-                <Form.Group as={Col} md="4">
-                    <Form.Label>Endereço</Form.Label>
+                <Form.Group as={Col} md="12">
+                    <Form.Label>Endereco</Form.Label>
                     <Form.Control
                         required
                         type="text"
                         id="endereco"
                         name="endereco"
                         value={fornecedor.endereco}
-                        onChange={manipularMudanca}  
+                        onChange={manipularMudanca}
                     />
-                    <Form.Control.Feedback type='invalid'>Por favor, informe o Endereço do fornecedor!</Form.Control.Feedback>
+                    <Form.Control.Feedback type="invalid">Por favor, informe o endereco do fornecedor!</Form.Control.Feedback>
                 </Form.Group>
             </Row>
             <Row className="mb-4">
-                <Form.Group as={Col} md="4">
+                <Form.Group as={Col} md="12">
                     <Form.Label>Contato</Form.Label>
                     <Form.Control
                         required
@@ -104,11 +114,11 @@ export default function FormCadFornecedores(props){
                         value={fornecedor.contato}
                         onChange={manipularMudanca}
                     />
-                    <Form.Control.Feedback type='invalid'>Por favor, informe o Contato do fornecedor!</Form.Control.Feedback>
+                    <Form.Control.Feedback type="invalid">Por favor, informe o contato do fornecedor!</Form.Control.Feedback>
                 </Form.Group>
             </Row>
             <Row className="mb-4">
-                <Form.Group as={Col} md="4">
+                <Form.Group as={Col} md="12">
                     <Form.Label>CPF</Form.Label>
                     <Form.Control
                         required
@@ -116,24 +126,21 @@ export default function FormCadFornecedores(props){
                         id="cpf"
                         name="cpf"
                         value={fornecedor.cpf}
-                        onChange={manipularMudanca} 
+                        onChange={manipularMudanca}
                     />
-                    <Form.Control.Feedback type='invalid'>Por favor, informe o CPF do fornecedor!</Form.Control.Feedback>
+                    <Form.Control.Feedback type="invalid">Por favor, informe o cpf do fornecedor!</Form.Control.Feedback>
                 </Form.Group>
             </Row>
             <Row className='mt-2 mb-2'>
                 <Col md={1}>
-                    <Button type="submit">
-                        {props.modoEdicao ? "Atualizar" : "Confirmar"}
-                    </Button>
+                <Button type="submit">{props.modoEdicao ? "Alterar":"Confirmar"}</Button>
                 </Col>
-                <Col md={{ offset: 1 }}>
-                <Button onClick={()=>{
+                <Col md={{offset:1}} >
+                    <Button onClick={() => {
                         props.setExibirTabela(true);
                     }}>Voltar</Button>
                 </Col>
             </Row>
         </Form>
-
     );
 }

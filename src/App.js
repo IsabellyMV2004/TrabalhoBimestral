@@ -2,7 +2,7 @@ import Pagina from "./componentes/layouts/Pagina";
 import TelaCadastroProduto from "./componentes/Telas/TelaCadastroProduto";
 import TelaCadastroCategoria from "./componentes/Telas/TelaCadastroCategoria";
 import TelaCadastroCliente from "./componentes/Telas/TelaCadastroCliente";
-import TelaCadastroFornecedores from "./componentes/Telas/TelaCadastroFornecedores";
+import TelaCadastroFornecedores from "./componentes/Telas/TelaCadastroFornecedor";
 import TelaCadastroEntregadores from "./componentes/Telas/TelaCadastroEntregador";
 import TelaCadastroUsuarios from "./componentes/Telas/TelaCadastroUsuario";
 import TelaMenu from "./componentes/Telas/TelaMenu";
